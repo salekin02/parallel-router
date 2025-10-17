@@ -1,58 +1,78 @@
 /* Parallel Router Styles */
 
 .parallel-sidebar {
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  background: white;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  overflow-y: auto;
-  transition: transform 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    overflow-y: auto;
+    transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .parallel-sidebar-left {
-  left: 0;
-  border-right: 1px solid #e0e0e0;
+    left: 0;
+    border-right: 1px solid #e0e0e0;
 }
 
 .parallel-sidebar-right {
-  right: 0;
-  border-left: 1px solid #e0e0e0;
+    right: 0;
+    border-left: 1px solid #e0e0e0;
 }
 
 .parallel-sidebar-closed.parallel-sidebar-left {
-  transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 
 .parallel-sidebar-closed.parallel-sidebar-right {
-  transform: translateX(100%);
+    transform: translateX(100%);
 }
 
 .parallel-sidebar-open.parallel-sidebar-left {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 .parallel-sidebar-open.parallel-sidebar-right {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 .parallel-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  transition: opacity 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .parallel-overlay-hidden {
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .parallel-overlay-visible {
-  opacity: 1;
+    opacity: 1;
+}
+
+.parallel-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    z-index: 1;
 }
