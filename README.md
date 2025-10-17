@@ -5,6 +5,7 @@ A React Router v6 extension that enables parallel routing with sidebar navigatio
 ## Features
 
 - Built on top of React Router v6
+- Single Link component for both regular and parallel navigation
 - Sidebar appears when clicking parallel links
 - Routes synced via URL search parameters
 - Keyboard support (ESC to close)
@@ -95,21 +96,27 @@ const routes = <Routes>...</Routes>;
 
 **See [ROUTES_API.md](./ROUTES_API.md) for detailed examples of all patterns.**
 
-### 3. Use ParallelLink to open routes in the sidebar
+### 3. Use Link component to navigate
 
 ```tsx
-import { ParallelLink } from 'parallel-router';
+import { Link } from 'parallel-router';
 
 function Home() {
   return (
     <div>
       <h1>Home Page</h1>
-      <ParallelLink to="/user/123">View User Profile</ParallelLink>
-      <ParallelLink to="/settings">Open Settings</ParallelLink>
+      {/* Regular navigation */}
+      <Link to="/about">About Page</Link>
+      
+      {/* Parallel navigation (opens in sidebar) */}
+      <Link to="/user/123" target="parallel">View User Profile</Link>
+      <Link to="/settings" target="parallel">Open Settings</Link>
     </div>
   );
 }
 ```
+
+> **Note:** The `Link` component works for both regular and parallel navigation. Use `target="parallel"` to open routes in the sidebar.
 
 ## API Reference
 
@@ -140,15 +147,27 @@ Displays parallel routes in a sidebar.
 - `overlayClassName?`: string - Custom CSS class for overlay
 - `style?`: CSSProperties - Custom inline styles
 
-### `<ParallelLink>`
+### `<Link>`
 
-Link component that opens routes in the sidebar.
+Enhanced Link component that supports both regular and parallel navigation.
 
 **Props:**
 - `to`: string - Target route path
+- `target?`: 'parallel' - Set to `'parallel'` to open in sidebar
 - `paramName?`: string - URL search parameter name (default: `'parallel'`)
 - `children`: ReactNode - Link content
-- All standard anchor tag props (`className`, `style`, etc.)
+- All React Router Link props (`replace`, `state`, etc.)
+
+**Example:**
+```tsx
+// Regular navigation
+<Link to="/about">About</Link>
+
+// Parallel navigation (opens in sidebar)
+<Link to="/profile" target="parallel">View Profile</Link>
+```
+
+> **Backward Compatibility:** `ParallelLink` is still available for legacy code. See [LINK_COMPONENT.md](./LINK_COMPONENT.md) for migration guide.
 
 ### `useParallelNavigation()`
 
@@ -265,15 +284,15 @@ function MyComponent() {
 
 ### Custom Parameter Name
 
-If you want to use a different URL parameter (e.g., `?modal=...` instead of `?parallel=...`):
+If you want to use a different URL parameter (e.g., `?xyz=...` instead of `?parallel=...`):
 
 ```tsx
-<ParallelRouterProvider paramName="modal">
+<ParallelRouterProvider paramName="xyz">
   <ParallelSidebar
-    paramName="modal"
+    paramName="xyz"
     routes={routes}
   />
-  <ParallelLink paramName="modal" to="/profile">
+  <ParallelLink paramName="xyz" to="/profile">
     Open Profile
   </ParallelLink>
 </ParallelRouterProvider>
