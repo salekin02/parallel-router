@@ -94,8 +94,6 @@ const routes = <Routes>...</Routes>;
 <ParallelSidebar routes={routes} />
 ```
 
-**See [ROUTES_API.md](./ROUTES_API.md) for detailed examples of all patterns.**
-
 ### 3. Use Link component to navigate
 
 ```tsx
@@ -167,7 +165,7 @@ Enhanced Link component that supports both regular and parallel navigation.
 <Link to="/profile" target="parallel">View Profile</Link>
 ```
 
-> **Backward Compatibility:** `ParallelLink` is still available for legacy code. See [LINK_COMPONENT.md](./LINK_COMPONENT.md) for migration guide.
+> **Note:** `ParallelLink` is still available for backward compatibility.
 
 ### `useParallelNavigation()`
 
