@@ -9,4 +9,5 @@ export default defineConfig({
   clean: true,
   external: ['react', 'react-dom', 'react-router-dom'],
   treeshake: true,
+  injectStyle: true,
 });

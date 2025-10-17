@@ -1,7 +1,6 @@
 import { CSSProperties, ReactNode, useEffect, isValidElement, ReactElement, useRef, useState } from 'react';
 import { Routes, Route, useLocation, matchRoutes, type RouteObject } from 'react-router-dom';
 import { useParallelNavigation } from '../hooks/useParallelNavigation';
-import styles from './ParallelSidebar.module.css';
 
 /**
  * Simple route configuration object
@@ -241,8 +240,8 @@ export function ParallelSidebar({
       {overlay && (
         <div
           className={[
-            styles.overlay,
-            !isParallelOpen ? styles.overlayClosed : '',
+            'parallel-overlay',
+            !isParallelOpen ? 'parallel-overlay-hidden' : 'parallel-overlay-visible',
             overlayClassName
           ].filter(Boolean).join(' ')}
           onClick={handleClose}
@@ -250,9 +249,9 @@ export function ParallelSidebar({
       )}
       <div
         className={[
-          styles.sidebar,
-          position === 'left' ? styles.sidebarLeft : styles.sidebarRight,
-          shouldShowOpen ? styles.sidebarOpen : styles.sidebarClosed,
+          'parallel-sidebar',
+          position === 'left' ? 'parallel-sidebar-left' : 'parallel-sidebar-right',
+          shouldShowOpen ? 'parallel-sidebar-open' : 'parallel-sidebar-closed',
           className
         ].filter(Boolean).join(' ')}
         style={{ width, ...style }}
@@ -260,13 +259,13 @@ export function ParallelSidebar({
         data-parallel-sidebar-open={isParallelOpen}
       >
         <button
-          className={[styles.closeButton, 'parallel-sidebar-close', position === 'left' ? 'parallel-sidebar-close-left' : 'parallel-sidebar-close-right'].join(' ')}
+          className={['parallel-close-button', 'parallel-sidebar-close', position === 'left' ? 'parallel-sidebar-close-left' : 'parallel-sidebar-close-right'].join(' ')}
           onClick={handleClose}
           aria-label="Close sidebar"
         >
           ×
         </button>
-        <div className={[styles.content, 'parallel-sidebar-content'].join(' ')}>
+        <div className="parallel-content parallel-sidebar-content">
           {!hasValidRoute ? (
             <div style={{ padding: '2rem', textAlign: 'center', color: '#666' }}>
               <p>Route not found: {parallelPath}</p>

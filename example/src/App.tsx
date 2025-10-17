@@ -12,7 +12,6 @@ import Settings from './pages/parallel/Settings';
 import Notifications from './pages/parallel/Notifications';
 import ProductDetail from './pages/parallel/ProductDetail';
 import './App.css';
-import 'para'
 
 function App() {
   return (
