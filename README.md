@@ -47,31 +47,53 @@ function App() {
 
 ### 2. Add ParallelSidebar with your routes
 
+You have **4 flexible options** for defining routes:
+
+#### Option 1: Inline JSX (Simple)
 ```tsx
-import { Routes, Route } from 'react-router-dom';
-import { ParallelSidebar } from '@parallel-router/core';
-
-function App() {
-  return (
-    <div>
-      {/* Main routes */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-
-      {/* Parallel routes in sidebar */}
-      <ParallelSidebar
-        routes={[
-          { path: '/profile', element: <Profile /> },
-          { path: '/settings', element: <Settings /> },
-          { path: '/notifications', element: <Notifications /> },
-        ]}
-      />
-    </div>
-  );
-}
+<ParallelSidebar width={500} position="right">
+  <Routes>
+    <Route path="/user/:id" element={<UserProfile />} />
+    <Route path="/settings" element={<Settings />} />
+  </Routes>
+</ParallelSidebar>
 ```
+
+#### Option 2: Array of Objects (Programmatic)
+```tsx
+const routes = [
+  { path: '/user/:id', element: <UserProfile /> },
+  { path: '/settings', element: <Settings /> },
+];
+
+<ParallelSidebar routes={routes} width={500} />
+```
+
+#### Option 3: Route Reusability (⭐ Recommended)
+```tsx
+// Define routes once
+const appRoutes = (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/user/:id" element={<UserProfile />} />
+    <Route path="/settings" element={<Settings />} />
+  </Routes>
+);
+
+// Use in main content
+<main>{appRoutes}</main>
+
+// Reuse in sidebar (no duplication!)
+<ParallelSidebar>{appRoutes}</ParallelSidebar>
+```
+
+#### Option 4: Variable via Prop (Alternative)
+```tsx
+const routes = <Routes>...</Routes>;
+<ParallelSidebar routes={routes} />
+```
+
+**See [ROUTES_API.md](./ROUTES_API.md) for detailed examples of all patterns.**
 
 ### 3. Use ParallelLink to open routes in the sidebar
 
@@ -82,7 +104,7 @@ function Home() {
   return (
     <div>
       <h1>Home Page</h1>
-      <ParallelLink to="/profile">View Profile</ParallelLink>
+      <ParallelLink to="/user/123">View User Profile</ParallelLink>
       <ParallelLink to="/settings">Open Settings</ParallelLink>
     </div>
   );
@@ -104,9 +126,11 @@ Provides context for parallel routing.
 Displays parallel routes in a sidebar.
 
 **Props:**
-- `routes`: ParallelRouteConfig[] - Array of route configurations
-  - `path`: string - Route path
-  - `element`: ReactNode - Component to render
+- `routes?`: ParallelRouteConfig[] | ReactElement | RouteObject[] - Routes configuration
+  - Can be an array: `[{ path: '/user/:id', element: <User /> }]`
+  - Can be JSX: `<Routes><Route path="..." element={...} /></Routes>`
+  - Can be React Router's RouteObject[]
+- `children?`: ReactNode - Routes component with Route definitions (alternative to routes prop)
 - `paramName?`: string - URL search parameter name (default: `'parallel'`)
 - `width?`: string | number - Sidebar width (default: `400`)
 - `position?`: 'left' | 'right' - Sidebar position (default: `'right'`)
@@ -150,6 +174,57 @@ Hook to access parallel router context.
 - `closeParallel`: () => void - Function to close parallel route
 
 ## Advanced Examples
+
+### Reusing Routes for Both Main and Parallel Navigation
+
+The **recommended approach** is to define routes once and reuse them:
+
+```tsx
+function App() {
+  // Define your routes once
+  const appRoutes = (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/user/:id" element={<UserProfile />} />
+      <Route path="/settings" element={<Settings />} />
+    </Routes>
+  );
+
+  return (
+    <BrowserRouter>
+      <ParallelRouterProvider>
+        {/* Main navigation */}
+        <main>{appRoutes}</main>
+        
+        {/* Sidebar can open ANY of the routes! */}
+        <ParallelSidebar>{appRoutes}</ParallelSidebar>
+      </ParallelRouterProvider>
+    </BrowserRouter>
+  );
+}
+```
+
+Now you can navigate to `/settings` normally OR open it in a parallel sidebar!
+
+### Subset of Routes in Sidebar
+
+If you want only certain routes available in the sidebar:
+
+```tsx
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/user/:id" element={<UserProfile />} />
+</Routes>
+
+{/* Only user profiles can be opened in sidebar */}
+<ParallelSidebar>
+  <Routes>
+    <Route path="/user/:id" element={<UserProfile />} />
+  </Routes>
+</ParallelSidebar>
+```
 
 ### Custom Styled Sidebar
 

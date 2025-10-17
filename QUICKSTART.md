@@ -33,12 +33,6 @@ function App() {
 import { Routes, Route } from 'react-router-dom';
 import { ParallelSidebar } from '@parallel-router/core';
 
-// Define your parallel routes
-const parallelRoutes = [
-  { path: '/user/:id', element: <UserProfile /> },
-  { path: '/settings', element: <Settings /> },
-];
-
 function App() {
   return (
     <>
@@ -48,8 +42,13 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
 
-      {/* Parallel routes sidebar */}
-      <ParallelSidebar routes={parallelRoutes} />
+      {/* Parallel routes sidebar - pass Routes as children */}
+      <ParallelSidebar>
+        <Routes>
+          <Route path="/user/:id" element={<UserProfile />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </ParallelSidebar>
     </>
   );
 }
@@ -89,6 +88,23 @@ Now when you click a `ParallelLink`, it will:
 
 ## Common Patterns
 
+### Reuse Routes (Recommended!)
+```tsx
+const allRoutes = (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/user/:id" element={<UserProfile />} />
+    <Route path="/settings" element={<Settings />} />
+  </Routes>
+);
+
+// Use the same routes for both!
+<main>{allRoutes}</main>
+<ParallelSidebar>{allRoutes}</ParallelSidebar>
+```
+
+Now `/user/:id` works both as a regular page AND in the sidebar!
+
 ### Programmatic Control
 ```tsx
 const { openParallel, closeParallel } = useParallelNavigation();
@@ -101,24 +117,37 @@ const { openParallel, closeParallel } = useParallelNavigation();
 ### Custom Styling
 ```tsx
 <ParallelSidebar
-  routes={routes}
   width={500}
   position="left"
   style={{ backgroundColor: '#f5f5f5' }}
+>
+  <Routes>
+    <Route path="/profile" element={<Profile />} />
+  </Routes>
+</ParallelSidebar>
+```
+
+### Routes Array (Alternative)
+```tsx
+<ParallelSidebar
+  routes={[
+    { path: '/profile', element: <Profile /> },
+    { path: '/settings', element: <Settings /> },
+  ]}
 />
 ```
 
 ### Multiple Parallel Routes
 Yes! You can have different parallel routes on different pages:
 ```tsx
-<ParallelSidebar
-  routes={[
-    { path: '/user/:id', element: <UserProfile /> },
-    { path: '/product/:id', element: <ProductDetails /> },
-    { path: '/settings', element: <Settings /> },
-    { path: '/notifications', element: <Notifications /> },
-  ]}
-/>
+<ParallelSidebar>
+  <Routes>
+    <Route path="/user/:id" element={<UserProfile />} />
+    <Route path="/product/:id" element={<ProductDetails />} />
+    <Route path="/settings" element={<Settings />} />
+    <Route path="/notifications" element={<Notifications />} />
+  </Routes>
+</ParallelSidebar>
 ```
 
 Need help? Check the [README](./README.md) or open an issue on GitHub!
