@@ -1,3 +1,6 @@
+// Auto-import CSS
+import './components/ParallelSidebar.module.css';
+
 // Context
 export { ParallelRouterContext, useParallelRouter } from './context';
 export type { ParallelRouterContextValue } from './context';

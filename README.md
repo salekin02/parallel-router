@@ -34,6 +34,7 @@ npm install react react-dom react-router-dom
 ```tsx
 import { BrowserRouter } from 'react-router-dom';
 import { ParallelRouterProvider } from 'parallel-router';
+import 'parallel-router/styles.css'; // Import CSS
 
 function App() {
   return (
@@ -98,6 +99,7 @@ const routes = <Routes>...</Routes>;
 
 ```tsx
 import { Link } from 'parallel-router';
+import 'parallel-router/styles.css'; // Don't forget the CSS!
 
 function Home() {
   return (
