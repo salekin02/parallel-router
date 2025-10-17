@@ -1,6 +1,6 @@
 {
   "name": "parallel-router",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Enhanced React Router v6 with parallel routing - display multiple routes simultaneously with elegant sidebar navigation",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
