@@ -8,7 +8,7 @@ Instead of importing two different components (`Link` from React Router and `Par
 
 ## Installation
 
-Already included in `@parallel-router/core`.
+Already included in `parallel-router`.
 
 ## Usage
 
@@ -17,7 +17,7 @@ Already included in `@parallel-router/core`.
 Works exactly like React Router's `Link`:
 
 ```tsx
-import { Link } from '@parallel-router/core';
+import { Link } from 'parallel-router';
 
 function Navigation() {
   return (
@@ -35,7 +35,7 @@ function Navigation() {
 Add `target="parallel"` to open routes in the sidebar:
 
 ```tsx
-import { Link } from '@parallel-router/core';
+import { Link } from 'parallel-router';
 
 function UserCard({ userId }) {
   return (
@@ -55,7 +55,7 @@ function UserCard({ userId }) {
 Use both in the same component:
 
 ```tsx
-import { Link } from '@parallel-router/core';
+import { Link } from 'parallel-router';
 
 function ProductCard({ product }) {
   return (
@@ -94,7 +94,7 @@ Extends all React Router `LinkProps` with the following additions:
 Full TypeScript support with IntelliSense:
 
 ```tsx
-import { Link, type LinkProps } from '@parallel-router/core';
+import { Link, type LinkProps } from 'parallel-router';
 
 const MyLink: React.FC<LinkProps> = (props) => {
   return <Link {...props} />;
@@ -190,7 +190,7 @@ function SmartLink({ to, openInSidebar, children }) {
 
 ```tsx
 import { Link } from 'react-router-dom';
-import { ParallelLink } from '@parallel-router/core';
+import { ParallelLink } from 'parallel-router';
 
 function MyComponent() {
   return (
@@ -208,7 +208,7 @@ function MyComponent() {
 ### After
 
 ```tsx
-import { Link } from '@parallel-router/core';
+import { Link } from 'parallel-router';
 
 function MyComponent() {
   return (
@@ -247,7 +247,7 @@ If you need active link styling, you can combine this pattern with React Router'
 
 ```tsx
 import { NavLink } from 'react-router-dom';
-import { useParallelNavigation } from '@parallel-router/core';
+import { useParallelNavigation } from 'parallel-router';
 
 function ParallelNavLink({ to, target, children, ...props }) {
   const { openParallel } = useParallelNavigation();
@@ -276,3 +276,4 @@ function ParallelNavLink({ to, target, children, ...props }) {
 - [Quick Start Guide](./QUICKSTART.md)
 - [Routes API](./ROUTES_API.md)
 - [useParallelNavigation Hook](./README.md#useparallelnavigation)
+

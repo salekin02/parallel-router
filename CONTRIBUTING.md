@@ -67,3 +67,4 @@ Open an issue with:
 - Environment details (React version, browser, etc.)
 
 Thank you for contributing!
+

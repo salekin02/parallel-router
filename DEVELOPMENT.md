@@ -237,3 +237,4 @@ The example app demonstrates:
 **Happy Developing! 🎉**
 
 Open http://localhost:3000/ and start exploring!
+

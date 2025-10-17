@@ -7,7 +7,7 @@ The `ParallelSidebar` component accepts routes in **4 different ways** to provid
 Pass `<Routes>` directly as children.
 
 ```tsx
-import { ParallelSidebar } from '@parallel-router/core';
+import { ParallelSidebar } from 'parallel-router';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
 Pass an array of route configuration objects.
 
 ```tsx
-import { ParallelSidebar, type ParallelRouteConfig } from '@parallel-router/core';
+import { ParallelSidebar, type ParallelRouteConfig } from 'parallel-router';
 
 function App() {
   const routesArray: ParallelRouteConfig[] = [
@@ -57,7 +57,7 @@ Define routes in a variable, then pass as children.
 
 ```tsx
 import { Routes, Route } from 'react-router-dom';
-import { ParallelSidebar } from '@parallel-router/core';
+import { ParallelSidebar } from 'parallel-router';
 
 function App() {
   // Define routes once
@@ -97,7 +97,7 @@ Same as Pattern 3, but pass via `routes` prop instead of children.
 
 ```tsx
 import { Routes, Route } from 'react-router-dom';
-import { ParallelSidebar } from '@parallel-router/core';
+import { ParallelSidebar } from 'parallel-router';
 
 function App() {
   const mainRoutes = (
@@ -266,7 +266,7 @@ You can also use React Router's official `RouteObject[]` type:
 
 ```tsx
 import { type RouteObject } from 'react-router-dom';
-import { ParallelSidebar } from '@parallel-router/core';
+import { ParallelSidebar } from 'parallel-router';
 
 const routes: RouteObject[] = [
   { 
@@ -349,3 +349,4 @@ const routes = (
 ✅ **Zero breaking changes** - All existing implementations still valid
 
 Choose the pattern that best fits your application architecture!
+

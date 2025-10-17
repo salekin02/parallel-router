@@ -17,3 +17,4 @@ All notable changes to this project will be documented in this file.
 - Customizable styling options
 - Position control (left/right)
 - Overlay backdrop option
+

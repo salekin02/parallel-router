@@ -1,6 +1,6 @@
 # Example App - Parallel Router Demo
 
-This is a **live demo application** showing how to use `@parallel-router/core` in a real React application.
+This is a **live demo application** showing how to use `parallel-router` in a real React application.
 
 🌐 **Running at:** http://localhost:3000/
 
@@ -82,7 +82,7 @@ example/
 
 ### 1. Setup (App.tsx)
 ```tsx
-import { ParallelRouterProvider, ParallelSidebar } from '@parallel-router/core';
+import { ParallelRouterProvider, ParallelSidebar } from 'parallel-router';
 
 function App() {
   return (
@@ -103,14 +103,14 @@ function App() {
 
 ### 2. Create Links (Any Page)
 ```tsx
-import { ParallelLink } from '@parallel-router/core';
+import { ParallelLink } from 'parallel-router';
 
 <ParallelLink to="/user/123">View Profile</ParallelLink>
 ```
 
 ### 3. Programmatic Control (Navigation.tsx)
 ```tsx
-import { useParallelNavigation } from '@parallel-router/core';
+import { useParallelNavigation } from 'parallel-router';
 
 const { isParallelOpen, closeParallel } = useParallelNavigation();
 ```
@@ -133,7 +133,7 @@ The `vite.config.ts` uses path aliases to import the parallel-router source dire
 ```ts
 resolve: {
   alias: {
-    '@parallel-router/core': path.resolve(__dirname, '../src/index.ts'),
+    'parallel-router': path.resolve(__dirname, '../src/index.ts'),
   },
 }
 ```
@@ -171,3 +171,4 @@ Try modifying:
 - Create nested routes
 
 **Happy coding! 🚀**
+
