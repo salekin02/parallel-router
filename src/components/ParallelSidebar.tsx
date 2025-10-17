@@ -1,6 +1,7 @@
-import { CSSProperties, ReactNode, useEffect, isValidElement, ReactElement } from 'react';
+import { CSSProperties, ReactNode, useEffect, isValidElement, ReactElement, useRef, useState } from 'react';
 import { Routes, Route, useLocation, matchRoutes, type RouteObject } from 'react-router-dom';
 import { useParallelNavigation } from '../hooks/useParallelNavigation';
+import styles from './ParallelSidebar.module.css';
 
 /**
  * Simple route configuration object
@@ -75,42 +76,7 @@ export interface ParallelSidebarProps {
   style?: CSSProperties;
 }
 
-const defaultStyles = {
-  sidebar: (position: 'left' | 'right', width: string | number): CSSProperties => ({
-    position: 'fixed',
-    top: 0,
-    [position]: 0,
-    bottom: 0,
-    width: typeof width === 'number' ? `${width}px` : width,
-    backgroundColor: '#fff',
-    boxShadow: position === 'left' 
-      ? '2px 0 8px rgba(0,0,0,0.15)' 
-      : '-2px 0 8px rgba(0,0,0,0.15)',
-    zIndex: 1000,
-    overflowY: 'auto',
-    transition: 'transform 0.3s ease-in-out',
-  }),
-  overlay: {
-    position: 'fixed' as const,
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    zIndex: 999,
-  },
-  closeButton: (position: 'left' | 'right'): CSSProperties => ({
-    position: 'absolute',
-    top: '1rem',
-    [position === 'left' ? 'right' : 'left']: '1rem',
-    background: 'none',
-    border: 'none',
-    fontSize: '1.5rem',
-    cursor: 'pointer',
-    padding: '0.5rem',
-    lineHeight: 1,
-  }),
-};
+
 
 export function ParallelSidebar({
   routes,
@@ -144,7 +110,31 @@ export function ParallelSidebar({
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isParallelOpen]);
 
-  if (!isParallelOpen) {
+
+  // Animation state for smooth close
+  const [visible, setVisible] = useState(isParallelOpen);
+  const [shouldShowOpen, setShouldShowOpen] = useState(isParallelOpen);
+  const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // When isParallelOpen becomes true, show sidebar and trigger open class after a tick
+  useEffect(() => {
+    if (isParallelOpen) {
+      setVisible(true);
+      // Wait for next tick to allow transition
+      setTimeout(() => setShouldShowOpen(true), 10);
+    } else {
+      setShouldShowOpen(false);
+      // Wait for transition to finish before hiding
+      closeTimeout.current = setTimeout(() => {
+        setVisible(false);
+      }, 300); // match CSS transition duration
+    }
+    return () => {
+      if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    };
+  }, [isParallelOpen]);
+
+  if (!visible && !isParallelOpen) {
     return null;
   }
 
@@ -250,23 +240,33 @@ export function ParallelSidebar({
     <>
       {overlay && (
         <div
-          style={defaultStyles.overlay}
-          className={overlayClassName}
+          className={[
+            styles.overlay,
+            !isParallelOpen ? styles.overlayClosed : '',
+            overlayClassName
+          ].filter(Boolean).join(' ')}
           onClick={handleClose}
         />
       )}
       <div
-        style={{ ...defaultStyles.sidebar(position, width), ...style }}
-        className={className}
+        className={[
+          styles.sidebar,
+          position === 'left' ? styles.sidebarLeft : styles.sidebarRight,
+          shouldShowOpen ? styles.sidebarOpen : styles.sidebarClosed,
+          className
+        ].filter(Boolean).join(' ')}
+        style={{ width, ...style }}
+        data-parallel-sidebar-position={position}
+        data-parallel-sidebar-open={isParallelOpen}
       >
         <button
-          style={defaultStyles.closeButton(position)}
+          className={[styles.closeButton, 'parallel-sidebar-close', position === 'left' ? 'parallel-sidebar-close-left' : 'parallel-sidebar-close-right'].join(' ')}
           onClick={handleClose}
           aria-label="Close sidebar"
         >
           ×
         </button>
-        <div style={{ padding: '3rem 1.5rem 1.5rem' }}>
+        <div className={[styles.content, 'parallel-sidebar-content'].join(' ')}>
           {!hasValidRoute ? (
             <div style={{ padding: '2rem', textAlign: 'center', color: '#666' }}>
               <p>Route not found: {parallelPath}</p>

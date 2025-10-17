@@ -1,20 +1,23 @@
 {
   "name": "@parallel-router/core",
   "version": "1.0.0",
-  "description": "A React Router v6 extension that enables parallel routing with sidebar navigation",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "description": "Enhanced React Router v6 with parallel routing - display multiple routes simultaneously with elegant sidebar navigation",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/index.css"
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsup",
@@ -25,10 +28,16 @@
   "keywords": [
     "react",
     "react-router",
+    "react-router-v6",
     "router",
     "parallel-routes",
+    "parallel-routing",
     "sidebar",
-    "navigation"
+    "navigation",
+    "drawer",
+    "modal-routing",
+    "multi-pane",
+    "enhanced-router"
   ],
   "author": "",
   "license": "MIT",

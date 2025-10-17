@@ -6,6 +6,9 @@ export type { ParallelRouterContextValue } from './context';
 export { ParallelRouterProvider } from './components/ParallelRouterProvider';
 export type { ParallelRouterProviderProps } from './components/ParallelRouterProvider';
 
+export { Link } from './components/Link';
+export type { LinkProps } from './components/Link';
+
 export { ParallelLink } from './components/ParallelLink';
 export type { ParallelLinkProps } from './components/ParallelLink';
 
