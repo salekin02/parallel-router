@@ -109,6 +109,19 @@ export function ParallelSidebar({
     return () => document.removeEventListener('keydown', handleEscape);
   }, [isParallelOpen]);
 
+  // Prevent body scroll when sidebar is open using CSS class
+  useEffect(() => {
+    if (isParallelOpen) {
+      document.body.classList.add('parallel-sidebar-active');
+    } else {
+      document.body.classList.remove('parallel-sidebar-active');
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('parallel-sidebar-active');
+    };
+  }, [isParallelOpen]);
 
   // Animation state for smooth close
   const [visible, setVisible] = useState(isParallelOpen);

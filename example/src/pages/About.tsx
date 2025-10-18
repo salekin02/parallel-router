@@ -1,84 +1,56 @@
-import { ParallelLink } from 'parallel-router';
-
-export default function About() {
+export function About() {
   return (
-    <div className="page">
-      <h1>About Parallel Router</h1>
-      <p>
-        Parallel Router is a React Router v6 extension that enables parallel routing
-        with sidebar navigation. It allows you to display multiple routes simultaneously -
-        one in the main view and another in a sidebar.
-      </p>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <div>
+        <h1 className="text-5xl font-bold text-gray-900 mb-4">About Parallel Router</h1>
+        <p className="text-xl text-gray-600">
+          A React Router v6 extension that brings parallel routing to your application
+        </p>
+      </div>
 
-      <h2>Why Parallel Routes?</h2>
-      <p>
-        Traditional routing replaces the entire page when navigating. Parallel routing
-        lets you view related content side-by-side without losing context of your
-        current page.
-      </p>
+      <div className="bg-white rounded-lg shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">What is it?</h2>
+        <p className="text-gray-700 leading-relaxed mb-4">
+          Parallel Router extends React Router v6 to enable parallel routing - displaying multiple routes
+          simultaneously, one in the main view and another in a sidebar. Perfect for quick views, detail panels,
+          settings overlays, and more.
+        </p>
+        <p className="text-gray-700 leading-relaxed">
+          Built with TypeScript, fully typed, and designed to work seamlessly with your existing React Router setup.
+        </p>
+      </div>
 
-      <div className="cards-grid">
-        <div className="card">
-          <h3>💼 User Profiles</h3>
-          <p>
-            View user profiles in a sidebar without leaving your current page.
-          </p>
-          <ParallelLink to="/user/456" className="parallel-link">
-            View Example Profile
-          </ParallelLink>
-        </div>
-
-        <div className="card">
-          <h3>🛍️ Product Details</h3>
-          <p>
-            Browse products while viewing details in a sidebar.
-          </p>
-          <ParallelLink to="/product/999" className="parallel-link secondary">
-            View Product Details
-          </ParallelLink>
-        </div>
-
-        <div className="card">
-          <h3>⚙️ Quick Settings</h3>
-          <p>
-            Access settings without interrupting your workflow.
-          </p>
-          <ParallelLink to="/settings" className="parallel-link success">
-            Open Settings
-          </ParallelLink>
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg p-8">
+        <h2 className="text-3xl font-bold mb-4">Installation</h2>
+        <div className="bg-black bg-opacity-30 rounded-md p-4 font-mono text-sm">
+          npm install parallel-router react-router-dom
         </div>
       </div>
 
-      <h2>Key Benefits</h2>
-      <div className="info-section">
-        <ul style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-          <li><strong>Context Preservation:</strong> Stay on your current page while viewing related content</li>
-          <li><strong>URL Shareable:</strong> Parallel routes are in the URL, so you can share them</li>
-          <li><strong>Native Navigation:</strong> Browser back/forward buttons work perfectly</li>
-          <li><strong>Keyboard Friendly:</strong> ESC key closes the sidebar</li>
-          <li><strong>Mobile Responsive:</strong> Works on all screen sizes</li>
-          <li><strong>TypeScript Support:</strong> Fully typed for better developer experience</li>
-        </ul>
-      </div>
-
-      <h2>Use Cases</h2>
-      <p>Perfect for:</p>
-      <div className="cards-grid" style={{ marginTop: '1rem' }}>
-        <div className="card">
-          <h3>📊 Dashboards</h3>
-          <p>View detailed metrics without leaving the dashboard</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">📦 Lightweight</h3>
+          <p className="text-gray-700">
+            Only 46KB unpacked size with zero additional dependencies beyond React and React Router.
+          </p>
         </div>
-        <div className="card">
-          <h3>📧 Email Clients</h3>
-          <p>Read emails in a sidebar while keeping the inbox visible</p>
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">🎯 TypeScript First</h3>
+          <p className="text-gray-700">
+            Complete type definitions with IntelliSense support for the best developer experience.
+          </p>
         </div>
-        <div className="card">
-          <h3>🛒 E-commerce</h3>
-          <p>Browse products and view details simultaneously</p>
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">⚡ Auto CSS Injection</h3>
+          <p className="text-gray-700">
+            No manual CSS imports needed. Styles are automatically injected when you use the package.
+          </p>
         </div>
-        <div className="card">
-          <h3>📝 Documentation</h3>
-          <p>Show help docs alongside your main content</p>
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">🔗 URL Synced</h3>
+          <p className="text-gray-700">
+            Parallel routes are reflected in URL search parameters, making them shareable and bookmarkable.
+          </p>
         </div>
       </div>
     </div>

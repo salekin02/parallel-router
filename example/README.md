@@ -1,174 +1,73 @@
-# Example App - Parallel Router Demo
+# React + TypeScript + Vite
 
-This is a **live demo application** showing how to use `parallel-router` in a real React application.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-🌐 **Running at:** http://localhost:3000/
+Currently, two official plugins are available:
 
-## 🚀 Quick Start
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-The app is already running! Open your browser to:
-```
-http://localhost:3000/
-```
+## React Compiler
 
-## 🎯 What's Included
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-### Pages
-- **Home** (`/`) - Main page with feature overview
-- **About** (`/about`) - Information about parallel routing
-- **Products** (`/products`) - Product catalog with parallel details view
+## Expanding the ESLint configuration
 
-### Parallel Routes (Sidebar)
-- **User Profile** (`/user/:id`) - View user profiles
-- **Settings** (`/settings`) - Interactive settings panel
-- **Notifications** (`/notifications`) - Notification center
-- **Product Details** (`/product/:id`) - Product information
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## 💡 Try These Features
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-1. **Click Parallel Links**: Click any colored button to open a sidebar
-2. **URL Updates**: Notice the URL changes to include `?parallel=/route`
-3. **Browser Navigation**: Use back/forward buttons - they work!
-4. **Keyboard Shortcut**: Press ESC to close the sidebar
-5. **Click Outside**: Click the overlay to close
-6. **Multiple Routes**: Navigate between pages while keeping sidebar open
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## 🛠️ Development
-
-### Start Development Server
-```bash
-cd example
-npm run dev
-```
-
-### Build for Production
-```bash
-npm run build
-```
-
-### Preview Production Build
-```bash
-npm run preview
-```
-
-## 📁 Project Structure
-
-```
-example/
-├── src/
-│   ├── components/
-│   │   └── Navigation.tsx       # Main navigation with close button
-│   ├── pages/
-│   │   ├── Home.tsx             # Home page
-│   │   ├── About.tsx            # About page
-│   │   ├── Products.tsx         # Product catalog
-│   │   └── parallel/            # Parallel route pages
-│   │       ├── UserProfile.tsx
-│   │       ├── Settings.tsx
-│   │       ├── Notifications.tsx
-│   │       └── ProductDetail.tsx
-│   ├── App.tsx                  # Main app component
-│   ├── App.css                  # Styles
-│   ├── main.tsx                 # Entry point
-│   └── index.css                # Global styles
-├── index.html
-├── package.json
-├── vite.config.ts              # Vite configuration
-└── tsconfig.json               # TypeScript configuration
-
-```
-
-## 🔧 How It Works
-
-### 1. Setup (App.tsx)
-```tsx
-import { ParallelRouterProvider, ParallelSidebar } from 'parallel-router';
-
-function App() {
-  return (
-    <BrowserRouter>
-      <ParallelRouterProvider>
-        {/* Main routes */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-        
-        {/* Parallel routes */}
-        <ParallelSidebar routes={[...]} />
-      </ParallelRouterProvider>
-    </BrowserRouter>
-  );
-}
-```
-
-### 2. Create Links (Any Page)
-```tsx
-import { ParallelLink } from 'parallel-router';
-
-<ParallelLink to="/user/123">View Profile</ParallelLink>
-```
-
-### 3. Programmatic Control (Navigation.tsx)
-```tsx
-import { useParallelNavigation } from 'parallel-router';
-
-const { isParallelOpen, closeParallel } = useParallelNavigation();
-```
-
-## 🎨 Customization Examples
-
-The example app demonstrates:
-- ✅ Custom styling with CSS classes
-- ✅ Different sidebar widths
-- ✅ Multiple parallel routes
-- ✅ Dynamic content in parallel pages
-- ✅ Interactive components (settings, notifications)
-- ✅ URL parameter parsing
-- ✅ Responsive design
-
-## 📝 Code Highlights
-
-### Vite Configuration
-The `vite.config.ts` uses path aliases to import the parallel-router source directly:
-```ts
-resolve: {
-  alias: {
-    'parallel-router': path.resolve(__dirname, '../src/index.ts'),
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
   },
-}
+])
 ```
 
-This means you can **modify the source code** in `../src/` and see changes **instantly** in the example app!
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 🔥 Hot Module Replacement
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-Changes to either the example app OR the parallel-router source will trigger hot reload:
-- Edit `src/components/ParallelSidebar.tsx` in the root
-- Edit `example/src/pages/Home.tsx`
-- Changes appear instantly without full page reload
-
-## 🐛 Debugging Tips
-
-1. **Check the URL**: Parallel routes add `?parallel=/route` to the URL
-2. **React DevTools**: Inspect the `ParallelRouterContext` values
-3. **Network Tab**: No extra network requests (all client-side)
-4. **Console**: Check for any errors or warnings
-
-## 📚 Learn More
-
-- Main README: `../README.md`
-- Quick Start: `../QUICKSTART.md`
-- Package Overview: `../OVERVIEW.md`
-
-## 🎓 Experiment!
-
-Try modifying:
-- Sidebar width in `App.tsx`
-- Sidebar position (left/right)
-- Add new parallel routes
-- Customize styling in `App.css`
-- Add new pages
-- Create nested routes
-
-**Happy coding! 🚀**
-
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

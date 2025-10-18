@@ -1,19 +1,17 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { fileURLToPath } from 'url';
-import path from 'path';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import path from 'path'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // resolve: {
-  //   alias: {
-  //     'parallel-router': path.resolve(__dirname, '../dist/index.mjs'),
-  //   },
-  // },
+  resolve: {
+    alias: {
+      'parallel-router': path.resolve(__dirname, '../src/index.ts'),
+    },
+  },
   server: {
-    port: 3000,
+    port: 3002,
     open: true,
   },
-});
+})

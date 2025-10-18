@@ -1,43 +1,33 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {
-  ParallelRouterProvider,
-  ParallelSidebar,
-} from 'parallel-router';
-import Navigation from './components/Navigation';
-import Home from './pages/Home';
-import About from './pages/About';
-import Products from './pages/Products';
-import UserProfile from './pages/parallel/UserProfile';
-import Settings from './pages/parallel/Settings';
-import Notifications from './pages/parallel/Notifications';
-import ProductDetail from './pages/parallel/ProductDetail';
-import './App.css';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { ParallelRouterProvider, ParallelSidebar } from 'parallel-router';
+
+import { Home } from './pages/Home';
+import { Navbar } from './components/Navbar';
+import { About } from './pages/About';
+import { Features } from './pages/Features';
+import { UserProfile } from './pages/UserProfile';
+import { Settings } from './pages/Settings';
+import { ProductDetail } from './pages/ProductDetail';
 
 function App() {
   return (
     <BrowserRouter>
       <ParallelRouterProvider>
-        <div className="app">
-          <Navigation />
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+          <Navbar />
           
-          <main className="main-content">
+          <main className="container mx-auto px-4 py-8">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/user/:id" element={<UserProfile />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/notifications" element={<Notifications />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/features" element={<Features />} />
             </Routes>
           </main>
 
-          {/* ParallelSidebar will automatically use the same routes */}
           <ParallelSidebar width={500} position="right">
             <Routes>
               <Route path="/user/:id" element={<UserProfile />} />
               <Route path="/settings" element={<Settings />} />
-              <Route path="/notifications" element={<Notifications />} />
               <Route path="/product/:id" element={<ProductDetail />} />
             </Routes>
           </ParallelSidebar>

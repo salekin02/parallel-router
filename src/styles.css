@@ -76,3 +76,8 @@
     line-height: 1;
     z-index: 1;
 }
+
+/* Prevent body scroll when sidebar is open */
+body.parallel-sidebar-active {
+    overflow: hidden;
+}

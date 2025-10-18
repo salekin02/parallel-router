@@ -1,77 +1,82 @@
 import { Link } from 'parallel-router';
 
-export default function Home() {
+export function Home() {
+  const products = [
+    { id: 1, name: 'Premium Watch', price: '$299', image: '⌚' },
+    { id: 2, name: 'Designer Bag', price: '$499', image: '👜' },
+    { id: 3, name: 'Sunglasses', price: '$149', image: '🕶️' },
+    { id: 4, name: 'Sneakers', price: '$179', image: '👟' },
+  ];
+
   return (
-    <div className="page">
-      <h1>🚀 Welcome to Parallel Router Demo</h1>
-      <p>
-        This is a live demonstration of the parallel routing system. Click on any
-        link below to open a parallel route in a sidebar while staying on this page!
-      </p>
-
-      <h2>Try Parallel Routes</h2>
-      <p>Click these links to see the parallel routing in action:</p>
-      
-      <div style={{ marginTop: '1.5rem' }}>
-        <Link to="/user/123" target="parallel" className="parallel-link">
-          👤 View User Profile
-        </Link>
-        <Link to="/settings" target="parallel" className="parallel-link secondary">
-          ⚙️ Open Settings
-        </Link>
-        <Link to="/notifications" target="parallel" className="parallel-link success">
-          🔔 View Notifications
-        </Link>
-      </div>
-
-      <h2>Features</h2>
-      <div className="features-grid">
-        <div className="feature-card">
-          <div className="feature-icon">🔗</div>
-          <h3>URL-Based</h3>
-          <p>Routes are synced with URL search parameters</p>
-        </div>
-        <div className="feature-card">
-          <div className="feature-icon">⬅️➡️</div>
-          <h3>Browser Navigation</h3>
-          <p>Back and forward buttons work naturally</p>
-        </div>
-        <div className="feature-card">
-          <div className="feature-icon">🎨</div>
-          <h3>Customizable</h3>
-          <p>Full control over styling and behavior</p>
-        </div>
-        <div className="feature-card">
-          <div className="feature-icon">⌨️</div>
-          <h3>Keyboard Support</h3>
-          <p>Press ESC to close the sidebar</p>
+    <div className="space-y-12">
+      {/* Hero Section */}
+      <div className="text-center py-16">
+        <h1 className="text-6xl font-bold text-gray-900 mb-6">
+          Welcome to <span className="text-blue-600">Parallel Router</span>
+        </h1>
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Experience seamless sidebar navigation with React Router v6.
+          Click any item to see it in action!
+        </p>
+        <div className="flex justify-center space-x-4">
+          <Link 
+            to="/user/123" 
+            target="parallel"
+            className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition"
+          >
+            Try Demo
+          </Link>
+          <Link 
+            to="/features"
+            className="bg-gray-200 text-gray-800 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-300 transition"
+          >
+            Learn More
+          </Link>
         </div>
       </div>
 
-      <h2>How It Works</h2>
-      <div className="info-section">
-        <ol style={{ paddingLeft: '1.5rem', lineHeight: '1.8' }}>
-          <li>Click a parallel link to open a route in the sidebar</li>
-          <li>The URL updates with a search parameter (e.g., <code>?parallel=/user/123</code>)</li>
-          <li>Both the main page and sidebar are visible simultaneously</li>
-          <li>Close the sidebar by pressing ESC, clicking outside, or using the close button</li>
-          <li>Navigate normally and parallel routes remain independent</li>
-        </ol>
+      {/* Products Grid */}
+      <div>
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Products</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
+            <Link
+              key={product.id}
+              to={`/product/${product.id}`}
+              target="parallel"
+              className="bg-white rounded-lg shadow-md hover:shadow-xl transition p-6 cursor-pointer"
+            >
+              <div className="text-6xl text-center mb-4">{product.image}</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
+              <p className="text-2xl font-bold text-blue-600">{product.price}</p>
+              <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+                View Details
+              </button>
+            </Link>
+          ))}
+        </div>
       </div>
 
-      <h2>Quick Stats</h2>
-      <div className="stats">
-        <div className="stat-item">
-          <div className="stat-label">Bundle Size</div>
-          <div className="stat-value">~5KB</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-label">Dependencies</div>
-          <div className="stat-value">0</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-label">TypeScript</div>
-          <div className="stat-value">100%</div>
+      {/* Features Preview */}
+      <div className="bg-white rounded-lg shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Parallel Router?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center">
+            <div className="text-5xl mb-3">⚡</div>
+            <h3 className="text-xl font-semibold mb-2">Fast & Lightweight</h3>
+            <p className="text-gray-600">Only 46KB unpacked size</p>
+          </div>
+          <div className="text-center">
+            <div className="text-5xl mb-3">🎨</div>
+            <h3 className="text-xl font-semibold mb-2">Fully Customizable</h3>
+            <p className="text-gray-600">Adapt to your design system</p>
+          </div>
+          <div className="text-center">
+            <div className="text-5xl mb-3">🔗</div>
+            <h3 className="text-xl font-semibold mb-2">URL Synced</h3>
+            <p className="text-gray-600">Shareable parallel routes</p>
+          </div>
         </div>
       </div>
     </div>
