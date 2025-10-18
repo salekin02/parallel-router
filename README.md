@@ -15,6 +15,10 @@ A React Router v6 extension that enables parallel routing with sidebar navigatio
 
 ## Installation
 
+[![npm](https://img.shields.io/npm/v/parallel-router?color=blue&logo=npm&style=flat-square)](https://www.npmjs.com/package/parallel-router)
+
+Install via npm:
+
 ```bash
 npm install parallel-router
 ```
