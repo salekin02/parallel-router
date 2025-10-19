@@ -2,6 +2,10 @@
 
 A React Router v6 extension that enables parallel routing with sidebar navigation. Display multiple routes simultaneously - one in the main view and another in a sidebar.
 
+## 🚀 [Live Demo](https://salekin02.github.io/parallel-router/)
+
+**👉 [Try it now!](https://salekin02.github.io/parallel-router/)** - See parallel routing in action before installing.
+
 ## Features
 
 - Built on top of React Router v6
@@ -170,8 +174,6 @@ Enhanced Link component that supports both regular and parallel navigation.
 <Link to="/profile" target="parallel">View Profile</Link>
 ```
 
-> **Note:** `ParallelLink` is still available for backward compatibility.
-
 ### `useParallelNavigation()`
 
 Hook for programmatic parallel navigation.
@@ -295,9 +297,9 @@ If you want to use a different URL parameter (e.g., `?xyz=...` instead of `?para
     paramName="xyz"
     routes={routes}
   />
-  <ParallelLink paramName="xyz" to="/profile">
+  <Link paramName="xyz" to="/profile">
     Open Profile
-  </ParallelLink>
+  </Link>
 </ParallelRouterProvider>
 ```
 

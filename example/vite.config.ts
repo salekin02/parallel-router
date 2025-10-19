@@ -10,7 +10,7 @@ export default defineConfig({
   //     'parallel-router': path.resolve(__dirname, '../src/index.ts'),
   //   },
   // },
-  base: './',
+  base: '/parallel-router/',
   server: {
     port: 3002,
     open: true,
