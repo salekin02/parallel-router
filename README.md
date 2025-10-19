@@ -322,9 +322,6 @@ The parallel router works by:
 
 The package includes full TypeScript definitions. All components and hooks are fully typed.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
