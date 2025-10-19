@@ -3,6 +3,7 @@
   "version": "0.0.9",
   "description": "Enhanced React Router v6 with parallel routing - display multiple routes simultaneously with elegant sidebar navigation",
   "main": "./dist/index.js",
+  "homepage": "https://github.com/salekin02/parallel-router#readme",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
