@@ -40,7 +40,7 @@
     "multi-pane",
     "enhanced-router"
   ],
-  "license": "GPL-3.0",
+  "license": "MIT",
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",

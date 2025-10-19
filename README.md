@@ -327,5 +327,5 @@ The package includes full TypeScript definitions. All components and hooks are f
 
 ## License
 
-GPL-3.0
+MIT
 

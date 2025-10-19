@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2025 Serajus Salekin
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { CSSProperties, ReactNode, useEffect, isValidElement, ReactElement, useRef, useState } from 'react';
 import { Routes, Route, useLocation, matchRoutes, type RouteObject } from 'react-router-dom';
 import { useParallelNavigation } from '../hooks/useParallelNavigation';
