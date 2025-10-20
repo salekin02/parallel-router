@@ -6,6 +6,16 @@ A React Router v6 extension that enables parallel routing with sidebar navigatio
 
 **👉 [Try it now!](https://salekin02.github.io/parallel-router/)** - See parallel routing in action before installing.
 
+## Support
+
+If this project helped you, please support it now by:
+
+- ⭐ Starring the repository on GitHub — it helps others discover the project.
+- 🔁 Sharing the demo (https://salekin02.github.io/parallel-router/) on Twitter, LinkedIn, or in developer communities.
+- 🐛 Opening issues or PRs — bug reports, docs fixes, and contributions are hugely appreciated.
+
+Thank you for your support!
+
 ## Features
 
 - Built on top of React Router v6
