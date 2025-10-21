@@ -20,6 +20,10 @@
     "CHANGELOG.md",
     "LICENSE"
   ],
+  "funding": {
+    "type": "buymeacoffee",
+    "url": "https://buymeacoffee.com/salekin02"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

@@ -1,20 +1,14 @@
 ﻿# Parallel Router
 
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕-yellow?style=flat-square)](https://buymeacoffee.com/salekin02)
+[![npm version](https://img.shields.io/npm/v/parallel-router.svg)](https://www.npmjs.com/package/parallel-router)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 A React Router v6 extension that enables parallel routing with sidebar navigation. Display multiple routes simultaneously - one in the main view and another in a sidebar.
 
 ## 🚀 [Live Demo](https://salekin02.github.io/parallel-router/)
 
 **👉 [Try it now!](https://salekin02.github.io/parallel-router/)** - See parallel routing in action before installing.
-
-## Support
-
-If this project helped you, please support it now by:
-
-- ⭐ Starring the repository on GitHub — it helps others discover the project.
-- 🔁 Sharing the demo (https://salekin02.github.io/parallel-router/) on Twitter, LinkedIn, or in developer communities.
-- 🐛 Opening issues or PRs — bug reports, docs fixes, and contributions are hugely appreciated.
-
-Thank you for your support!
 
 ## Features
 
@@ -337,5 +331,15 @@ The package includes full TypeScript definitions. All components and hooks are f
 
 ## License
 
-MIT
+MIT Licensed. Copyright (c) Serajus Salekin 2025.
+
+
+## Support
+
+If this project helped you, please support it by:
+- [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕-yellow?style=for-the-badge)](https://buymeacoffee.com/salekin02)
+- ⭐ Starring the repository on GitHub — it helps others discover the project.
+- 🔁 Sharing the demo (https://salekin02.github.io/parallel-router/) on Twitter, LinkedIn, or in developer communities.
+
+Thank you for your support!
 
