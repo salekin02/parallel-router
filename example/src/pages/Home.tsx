@@ -33,13 +33,15 @@ export function Home() {
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">Featured Products</h2>
         <p className="text-sm text-slate-600 mb-4 max-w-2xl">Click any product's card or the button to open details in the sidebar — the main page stays in place so you can compare items quickly.</p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {products.map((product) => (
-            <Link key={product.id} to={`/product/${product.id}`} target="parallel" className="group block bg-white rounded-2xl shadow-sm hover:shadow-xl transition p-6 hover:-translate-y-1">
+            <Link key={product.id} to={`/product/${product.id}`} target="parallel" className="group flex flex-col h-full bg-white rounded-2xl shadow-sm hover:shadow-xl transition p-6 hover:-translate-y-1">
               <div className="h-36 flex items-center justify-center text-6xl mb-4 rounded-md bg-gradient-to-br from-slate-50 to-white">{product.image}</div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-1 group-hover:text-indigo-600">{product.name}</h3>
-              <p className="text-sm text-slate-600 mb-2">{product.desc}</p>
-              <p className="text-lg font-bold text-indigo-600">{product.price}</p>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-slate-900 mb-1 group-hover:text-indigo-600">{product.name}</h3>
+                <p className="text-sm text-slate-600 mb-2">{product.desc}</p>
+                <p className="text-lg font-bold text-indigo-600">{product.price}</p>
+              </div>
               <div className="mt-4">
                 <button aria-label={`Open details for ${product.name} in sidebar`} className="btn-card btn btn-shadow">Open details in sidebar</button>
               </div>
