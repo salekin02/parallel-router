@@ -17,6 +17,7 @@ export function Home() {
         </h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           Experience seamless sidebar navigation with React Router v6.
+          <br />
           Click any item to see it in action!
         </p>
         <div className="flex justify-center space-x-4">
