@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	html, body, #root {
+		height: 100%;
+	}
+
+	body {
+		font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		color: theme("colors.slate.900");
+		background-attachment: fixed;
+	}
+
+	/* subtle container padding so content doesn't touch edges on small screens */
+	.container {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+	@layer components {
+		.btn {
+			@apply inline-flex items-center justify-center rounded-full font-medium transition-transform transform-gpu will-change-transform;
+		}
+
+		.btn-shadow {
+			@apply shadow-sm hover:shadow-md;
+		}
+
+		.btn-primary {
+			@apply bg-gradient-to-r from-indigo-600 to-blue-500 text-white px-6 py-3 rounded-full; 
+		}
+
+		.btn-ghost {
+			@apply bg-white border border-slate-200 text-slate-700 px-5 py-3 rounded-full;
+		}
+
+		.btn-card {
+			@apply w-full bg-indigo-600 text-white py-2 rounded-full text-sm font-medium;
+		}
+
+		/* smooth hover lift */
+		.btn:hover {
+			transform: translateY(-3px) scale(1.01);
+		}
+	}
