@@ -2,6 +2,7 @@
 
 [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕-yellow?style=flat-square)](https://buymeacoffee.com/salekin02)
 [![npm version](https://img.shields.io/npm/v/parallel-router.svg)](https://www.npmjs.com/package/parallel-router)
+[![npm downloads](https://img.shields.io/npm/dm/parallel-router.svg)](https://www.npmjs.com/package/parallel-router)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A React Router v6 extension that enables parallel routing with sidebar navigation. Display multiple routes simultaneously - one in the main view and another in a sidebar.
