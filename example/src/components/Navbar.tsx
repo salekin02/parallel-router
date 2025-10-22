@@ -27,6 +27,16 @@ export function Navbar() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM4 20c0-2.21 3.58-4 8-4s8 1.79 8 4v1H4v-1z"/></svg>
               <span className="hidden sm:inline">Profile</span>
             </Link>
+            {/* Buy Me a Coffee compact link */}
+            <a
+              href="https://buymeacoffee.com/salekin02"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 inline-flex items-center gap-2 btn btn-primary btn-shadow px-3 py-1.5 rounded-md text-sm shadow-md text-slate-900 font-semibold"
+              style={{ background: 'linear-gradient(180deg, #FFDD57, #FFC107)', color: '#1f2937' }}
+            >
+              ☕ Support
+            </a>
           </div>
         </div>
       </div>

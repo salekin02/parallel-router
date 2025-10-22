@@ -1,13 +1,13 @@
 ﻿# Parallel Router
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕-yellow?style=flat-square)](https://buymeacoffee.com/salekin02)
-[![npm version](https://img.shields.io/npm/v/parallel-router.svg)](https://www.npmjs.com/package/parallel-router)
-[![npm downloads](https://img.shields.io/npm/dm/parallel-router.svg)](https://www.npmjs.com/package/parallel-router)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/parallel-router.svg?style=flat-square)](https://www.npmjs.com/package/parallel-router)
+[![npm downloads](https://img.shields.io/npm/dm/parallel-router.svg?style=flat-square)](https://www.npmjs.com/package/parallel-router)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-yellow?style=flat-square)](https://buymeacoffee.com/salekin02)
 
-A React Router v6 extension that enables parallel routing with sidebar navigation. Display multiple routes simultaneously - one in the main view and another in a sidebar.
+A React Router v6 extension that enables parallel routing with sidebar navigation. Display multiple routes simultaneously — one in the main view and another in a sidebar.
 
-## 🚀 [Live Demo](https://salekin02.github.io/parallel-router/) [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-yellow?style=for-the-badge)](https://buymeacoffee.com/salekin02)
+## 🚀 [Live Demo](https://salekin02.github.io/parallel-router/)
 
 **👉 [Try it now!](https://salekin02.github.io/parallel-router/)** - See parallel routing in action before installing.
 
@@ -338,7 +338,8 @@ MIT Licensed. Copyright (c) Serajus Salekin 2025.
 ## Support
 
 If this project helped you, please support it by:
-- [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-☕-yellow?style=for-the-badge)](https://buymeacoffee.com/salekin02)
+
+- ☕ Buy me a coffee: [https://buymeacoffee.com/salekin02](https://buymeacoffee.com/salekin02)
 - ⭐ Starring the repository on GitHub — it helps others discover the project.
 - 🔁 Sharing the demo (https://salekin02.github.io/parallel-router/) on Twitter, LinkedIn, or in developer communities.
 
