@@ -1,9 +1,20 @@
 ﻿# Parallel Router
 
-[![npm version](https://img.shields.io/npm/v/parallel-router.svg?style=flat-square)](https://www.npmjs.com/package/parallel-router)
-[![npm downloads](https://img.shields.io/npm/dm/parallel-router.svg?style=flat-square)](https://www.npmjs.com/package/parallel-router)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-yellow?style=flat-square)](https://buymeacoffee.com/salekin02)
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/parallel-router" aria-label="npm version">
+    <img alt="npm version" src="https://img.shields.io/npm/v/parallel-router.svg?style=flat-square" style="height:32px; margin:6px;" />
+  </a>
+  <a href="https://www.npmjs.com/package/parallel-router" aria-label="npm downloads">
+    <img alt="npm downloads" src="https://img.shields.io/npm/dm/parallel-router.svg?style=flat-square" style="height:32px; margin:6px;" />
+  </a>
+  <a href="LICENSE" aria-label="license">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" style="height:32px; margin:6px;" />
+  </a>
+  <a href="https://buymeacoffee.com/salekin02" aria-label="Buy Me a Coffee">
+    <img alt="Buy Me a Coffee" src="https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-yellow?style=flat-square" style="height:32px; margin:6px;" />
+  </a>
+</p>
 
 A React Router v6 extension that enables parallel routing with sidebar navigation. Display multiple routes simultaneously — one in the main view and another in a sidebar.
 
