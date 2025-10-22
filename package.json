@@ -42,7 +42,9 @@
     "drawer",
     "modal-routing",
     "multi-pane",
-    "enhanced-router"
+    "enhanced-router",
+    "parallel router",
+    "sidebar page"
   ],
   "license": "MIT",
   "peerDependencies": {
